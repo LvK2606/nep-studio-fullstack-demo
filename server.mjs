@@ -156,7 +156,8 @@ const server = createServer(async (req, res) => {
     return fail(res, 500, 'Hệ thống đang gặp sự cố. Vui lòng thử lại.');
   }
 });
-server.listen(PORT, '127.0.0.1', () => {
+const HOST = process.env.HOST || '127.0.0.1';
+server.listen(PORT, HOST, () => {
   const port = server.address().port;
   console.log(`NẾP studio demo đang chạy: http://localhost:${port}`);
   console.log(`Trang quản trị: http://localhost:${port}/admin`);
