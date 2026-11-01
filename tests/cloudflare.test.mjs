@@ -43,8 +43,21 @@ test('Cloudflare handler: login, signed cookie, logout',async()=>{
   assert.equal((await handleRequest(request('/api/admin/logout','POST',{},pair),environment,sql)).status,200);
 });
 test('Cloudflare handler: admin static asset and cross-origin protections',async()=>{
-  const admin=await handleRequest(request('/admin'),environment,sql);
+  // Cloudflare static assets redirect /admin.html to canonical /admin.
+  // The Worker must request /admin directly to prevent ERR_TOO_MANY_REDIRECTS.
+  const seen=[];
+  const strictAssets={...environment,ASSETS:{fetch:async req=>{
+    const p=new URL(req.url).pathname;
+    seen.push(p);
+    if(p==='/admin.html')return Response.redirect('https://nep.test/admin',307);
+    if(p==='/admin')return new Response('<!doctype html><title>Admin</title>',{status:200,headers:{'Content-Type':'text/html'}});
+    return new Response('Not Found',{status:404});
+  }}};
+  const admin=await handleRequest(request('/admin'),strictAssets,sql);
   assert.equal(admin.status,200);
+  assert.equal(admin.headers.get('location'),null);
+  assert.match(await admin.text(),/Admin/);
+  assert.deepEqual(seen,['/admin']);
   assert.equal(admin.headers.get('x-frame-options'),'DENY');
   const req=request('/api/admin/login','POST',{password:'test'});
   req.headers.set('origin','https://other.example');
