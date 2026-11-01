@@ -38,6 +38,11 @@
 
 **Backend:** Node.js native HTTP, API JSON, SQLite bằng `node:sqlite`, không phụ thuộc package bên ngoài.
 
+
+## Triển khai demo miễn phí
+
+Xem [hướng dẫn Render Free](DEPLOY_RENDER.md) để chạy Node.js và nhận subdomain HTTPS miễn phí. **Lưu ý:** SQLite local trên Render Free không lưu dữ liệu bền vững; chỉ dùng với dữ liệu giả.
+
 ## Chạy trên máy cá nhân
 
 **Yêu cầu:** Node.js **22.13+** (khuyên Node 22 LTS trở lên). `node:sqlite` có thể hiển thị cảnh báo API experimental ở một số phiên bản Node, nhưng bản demo đã được kiểm thử với Node 22.16.0.
