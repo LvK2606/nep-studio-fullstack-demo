@@ -71,3 +71,9 @@ Tài liệu chính thức:
 - https://developers.cloudflare.com/workers/static-assets/
 - https://developers.cloudflare.com/workers/configuration/secrets/
 - https://developers.cloudflare.com/workers/databases/third-party-integrations/neon/
+
+## Kích hoạt build sau khi đổi Production branch
+
+Nếu Cloudflare trước đây deploy từ `main`, sau khi đặt `feature/cloudflare-workers-free` làm Production branch, **một lần push mới lên nhánh này** sẽ kích hoạt production build. Kiểm tra trong tab **Deployments**: bản build mới phải hiển thị nhánh `feature/cloudflare-workers-free`, thay vì `main`. Trạng thái `Ready` chỉ xác nhận deploy hoàn tất, chưa chứng minh các API có thể kết nối Neon.
+
+Sau khi Cloudflare báo `Ready`, kiểm tra ngay `https://<subdomain>.workers.dev/api/services` trả về JSON với 3 dịch vụ. Nếu nhận `503`, kiểm tra tên và môi trường (Production) của ba Secrets; nếu nhận `500`, kiểm tra log Worker và URL PostgreSQL đã nhập. Không gửi giá trị Secret hoặc chuỗi kết nối vào chat.
