@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "type": "module",
-  "description": "Full-stack Vietnamese service booking demo: Node.js + SQLite + vanilla frontend, no external dependencies.",
+  "description": "Full-stack booking demo: Node.js, local SQLite and persistent Neon PostgreSQL on Render.",
   "scripts": {
     "setup": "node scripts/setup.mjs",
     "start": "node server.mjs",
@@ -12,5 +12,8 @@
   },
   "engines": {
     "node": ">=22.13.0"
+  },
+  "dependencies": {
+    "pg": "^8.16.3"
   }
 }
