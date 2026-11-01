@@ -1,0 +1,24 @@
+# Local configuration and secrets
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# Database and customer data
+*.sqlite
+*.sqlite-shm
+*.sqlite-wal
+*.sqlite-journal
+*.db
+*.db-shm
+*.db-wal
+
+# Generated files
+node_modules/
+coverage/
+dist/
+build/
+*.log
+.DS_Store
+Thumbs.db
