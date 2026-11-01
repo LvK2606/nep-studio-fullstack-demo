@@ -1,56 +1,72 @@
 @echo off
-setlocal
+setlocal EnableExtensions
+chcp 65001 >nul
 cd /d "%~dp0"
+set "REPO_URL=https://github.com/LvK2606/nep-studio-fullstack-demo.git"
+set "WORKDIR=%TEMP%\nep-studio-upload-%RANDOM%-%RANDOM%"
 echo.
-echo === NEP Studio - Push to GitHub ===
+echo ==========================================================
+echo   NEP STUDIO - Day ma nguon len GitHub
+
+echo   Repo: %REPO_URL%
+echo ==========================================================
 echo.
 where git >nul 2>&1
 if errorlevel 1 (
-  echo Git is missing. Install Git for Windows: https://git-scm.com/downloads/win
+  echo LOI: May chua cai Git for Windows.
+  echo Cai tai https://git-scm.com/downloads/win
   pause
   exit /b 1
 )
-set /p REPO_URL=Paste your new empty GitHub repository HTTPS URL: 
-if "%REPO_URL%"=="" (
-  echo Missing GitHub repository URL.
+if not exist "package.json" (
+  echo LOI: Khong tim thay package.json. Hay giai nen day du file ZIP.
   pause
   exit /b 1
 )
-if not exist ".git" git init
-if errorlevel 1 goto failed
-git branch -M main
-if errorlevel 1 goto failed
-git add .
-if errorlevel 1 goto failed
+echo [1/4] Clone repository hien tai de GIU NGUYEN lich su commit...
+git clone --branch main "%REPO_URL%" "%WORKDIR%"
+if errorlevel 1 goto error
+
+echo [2/4] Sao chep ma nguon, bo qua file bi mat va du lieu local...
+robocopy "%~dp0" "%WORKDIR%" /E /NFL /NDL /NJH /NJS /NP /XD .git node_modules coverage dist build data /XF .env .env.local .env.production .env.development *.sqlite *.sqlite-* *.db *.db-* *.pem *.key
+if errorlevel 8 goto error
+if not exist "%WORKDIR%\data" mkdir "%WORKDIR%\data"
+type nul > "%WORKDIR%\data\.gitkeep"
+
+cd /d "%WORKDIR%"
+git add -A
+if errorlevel 1 goto error
 echo.
-echo Please check staged files. Secrets and database must not appear:
+echo [3/4] Kiem tra danh sach file sap dua len GitHub:
 git status --short
 echo.
-set /p CONFIRM=If safe, type YES to continue: 
-if /I not "%CONFIRM%"=="YES" exit /b 1
+echo LUU Y: .env, database, mat khau, va token TUYET DOI khong duoc push.
+echo Hay kiem tra danh sach tren. Neu co thong tin rieng tu, bam Ctrl+C de dung.
+set /p "CONFIRM=Nhap YES de dong y push: "
+if /I not "%CONFIRM%"=="YES" (
+  echo Da huy. Chua push.
+  pause
+  exit /b 1
+)
 git diff --cached --quiet
 if errorlevel 1 (
-  git commit -m "Initial commit: NEP Studio full-stack booking demo"
-  if errorlevel 1 goto failed
-)
-git remote get-url origin >nul 2>&1
-if errorlevel 1 (
-  git remote add origin "%REPO_URL%"
+  git commit -m "feat: add complete NEP Studio full-stack booking demo"
+  if errorlevel 1 goto error
 ) else (
-  echo.
-  echo Existing remote URL:
-  git remote get-url origin
-  echo Make sure this is your intended repository before continuing.
+  echo Khong co file moi can commit.
 )
-if errorlevel 1 goto failed
-git push -u origin main
-if errorlevel 1 goto failed
+echo [4/4] Dang push len GitHub...
+git push origin main
+if errorlevel 1 goto error
+
 echo.
-echo Push completed. Visit your GitHub repository to verify.
+echo THANH CONG. Kiem tra:
+echo https://github.com/LvK2606/nep-studio-fullstack-demo
 pause
 exit /b 0
-:failed
+:error
 echo.
-echo Failed. Read HUONG_DAN_DUA_LEN_GITHUB.md for instructions.
+echo LOI: Khong the hoan tat. Repo tren GitHub chua duoc dong bo day du.
+echo Xem thong bao phia tren va file HUONG_DAN_DUA_LEN_GITHUB.md.
 pause
 exit /b 1
