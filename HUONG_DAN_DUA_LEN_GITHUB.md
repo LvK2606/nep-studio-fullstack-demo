@@ -1,15 +1,10 @@
 # Đưa dự án NẾP Studio lên GitHub
 
-## Bước 1: Tạo repository rỗng
+## Bước 1: Repository đã được tạo
 
-Truy cập https://github.com/new khi đăng nhập tài khoản GitHub.
+Repository hiện có: https://github.com/LvK2606/nep-studio-fullstack-demo
 
-- Repository name: `nep-studio-fullstack-demo`
-- Description: `Full-stack booking website demo | Node.js + SQLite + REST API + Admin Dashboard`
-- Visibility: bạn chọn **Public** nếu muốn hiển thị trong portfolio; hoặc **Private** để chỉ bạn thấy.
-- **Không chọn** `Add a README file`, `.gitignore`, `Choose a license` để tránh xung đột khi đẩy lần đầu.
-
-Bấm **Create repository** rồi sao chép URL `https://github.com/<tai-khoan>/nep-studio-fullstack-demo.git`.
+Repository đã có commit tài liệu. Script bên dưới tự clone đúng nhánh `main` rồi đồng bộ source, tránh lỗi `non-fast-forward` do lịch sử commit có sẵn.
 
 ## Bước 2: Đẩy mã nguồn
 
@@ -23,13 +18,14 @@ Bấm **Create repository** rồi sao chép URL `https://github.com/<tai-khoan>/
 Mở terminal tại thư mục có `package.json`:
 
 ```bash
-git init
-git branch -M main
-git add .
+git clone https://github.com/LvK2606/nep-studio-fullstack-demo.git nep-studio-remote
+# Sao chép các file nguồn từ thư mục ZIP đã giải nén vào nep-studio-remote
+# Tuyệt đối không sao chép .env, database hoặc thư mục node_modules
+cd nep-studio-remote
+git add -A
 git status --short
-git commit -m "Initial commit: NẾP Studio full-stack booking demo"
-git remote add origin https://github.com/<tai-khoan>/nep-studio-fullstack-demo.git
-git push -u origin main
+git commit -m "feat: add complete NEP Studio full-stack booking demo"
+git push origin main
 ```
 
 Nếu Git yêu cầu tên/email, hãy cấu hình Git identity của **bạn**, rồi chạy lại lệnh commit. Không dán access token hay mật khẩu vào chat.
