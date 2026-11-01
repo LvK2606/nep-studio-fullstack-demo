@@ -128,8 +128,9 @@ export async function handleRequest(request, env, sql) {
     }
     if (path === '/admin' && method === 'GET') {
       if (!env.ASSETS) return fail(503, 'Giao diện quản trị chưa được triển khai.');
-      const asset = new URL('/admin.html', request.url);
-      const response = await env.ASSETS.fetch(new Request(asset, request));
+      // Use the canonical /admin URL: Cloudflare auto-redirects /admin.html to /admin.
+      // Fetching /admin.html from ASSETS would otherwise create an infinite redirect loop.
+      const response = await env.ASSETS.fetch(request);
       const headers = new Headers(response.headers);
       for (const [name, value] of Object.entries(SECURITY_HEADERS)) headers.set(name, value);
       return new Response(response.body, { status: response.status, headers });
