@@ -6,15 +6,15 @@
 
 **Giao diện trang khách hàng**
 
-![NẾP Studio - giao diện desktop](docs/screenshots/nep-studio-desktop-preview.jpg)
+![NẾP Studio - giao diện desktop](docs/screenshots/nep-studio-desktop-preview.png)
 
 **Giao diện mobile**
 
-![NẾP Studio - giao diện mobile](docs/screenshots/nep-studio-mobile-preview.jpg)
+![NẾP Studio - giao diện mobile](docs/screenshots/nep-studio-mobile-preview.png)
 
 **Dashboard quản trị**
 
-![NẾP Studio - trang quản trị](docs/screenshots/nep-studio-admin-preview.jpg)
+![NẾP Studio - trang quản trị](docs/screenshots/nep-studio-admin-preview.png)
 
 *Ảnh chụp demo sử dụng dữ liệu minh họa; chưa được triển khai công khai.*
 
