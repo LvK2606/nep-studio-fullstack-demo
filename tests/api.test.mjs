@@ -20,7 +20,7 @@ test('API tích hợp: booking, SQLite, login, admin status, validation', async 
   const password = 'test-secure-password-123';
   const child = spawn(process.execPath, ['server.mjs'], {
     cwd:root,
-    env:{...process.env, PORT:'0', DB_PATH:join(directory,'test.sqlite'), ADMIN_PASSWORD:password, SESSION_SECRET:'x'.repeat(64)},
+    env:{...process.env, DATABASE_URL:'', REQUIRE_PERSISTENT_DB:'false', PORT:'0', DB_PATH:join(directory,'test.sqlite'), ADMIN_PASSWORD:password, SESSION_SECRET:'x'.repeat(64)},
     stdio:['ignore','pipe','pipe']
   });
   let output='';
