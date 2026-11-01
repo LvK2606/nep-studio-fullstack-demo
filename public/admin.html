@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="vi">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#f9f8f3"><meta name="description" content="Trang quản trị lịch hẹn demo NẾP studio."><link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="/styles.css"><title>Quản trị lịch hẹn — NẾP studio</title><script src="/admin.js" defer></script></head>
+<body class="admin-body">
+  <div class="demo-banner"><span class="status-dot"></span> ADMIN DEMO · Dữ liệu lưu nội bộ · Không dùng thông tin cá nhân thật <a href="/">Về website <span aria-hidden="true">↗</span></a></div>
+  <main id="login-screen" class="login-wrap">
+    <div class="login-illustration"><div class="login-brand">nếp<span>.</span></div><span class="login-illus-small">STUDIO MANAGEMENT</span><h1>Một nơi để<br>mọi lịch hẹn<br><em>thật gọn gàng.</em></h1><div class="login-circle"></div><p>Full-stack demo<br>Frontend · API · SQLite</p></div>
+    <div class="login-panel"><div class="eyebrow"><span class="eyebrow-line"></span> QUẢN TRỊ NẾP STUDIO</div><h2>Chào bạn<br>quay lại <span class="greeting-mark">✳</span></h2><p>Đăng nhập để xem và xử lý các yêu cầu đặt lịch trong hệ thống demo.</p>
+      <form id="login-form"><div class="field"><label for="admin-password">Mật khẩu quản trị</label><input type="password" name="password" id="admin-password" required autocomplete="current-password" placeholder="Nhập mật khẩu từ npm run setup"></div><button type="submit" class="button button-dark submit-button" id="login-button">Đăng nhập <span aria-hidden="true">↗</span></button><p id="login-message" class="form-message" role="status" aria-live="polite"></p></form>
+      <div class="login-help">Chưa có mật khẩu? Chạy <code>npm run setup</code> tại thư mục dự án. Nếu đã chạy, xem mật khẩu đã hiển thị khi thiết lập.</div><a href="/" class="text-link">← Quay về trang khách hàng</a>
+    </div>
+  </main>
+
+  <div id="dashboard-screen" class="dashboard" hidden>
+    <aside class="sidebar"><a class="logo" href="/">nếp<span class="logo-period">.</span><span class="logo-caption">management studio</span></a><div class="sidebar-label">WORKSPACE</div><a class="side-link active" href="#appointments"><span>▦</span> Lịch hẹn</a><a class="side-link" href="/" ><span>↗</span> Website khách hàng</a><div class="sidebar-bottom"><span class="sidebar-avatar">NS</span><span><strong>Demo Admin</strong><small>Studio manager</small></span></div></aside>
+    <div class="dashboard-main"><header class="dashboard-top"><div class="crumb">Workspace <span>/</span> Lịch hẹn</div><div class="admin-actions"><span class="online-badge"><span class="status-dot"></span> Hệ thống hoạt động</span><button type="button" class="button button-ghost" id="logout-button">Đăng xuất ↗</button></div></header>
+      <div class="dashboard-content" id="appointments"><div class="dash-heading"><div><div class="section-kicker">STUDIO / OVERVIEW</div><h1>Quản lý lịch hẹn<span class="greeting-mark">✳</span></h1><p>Theo dõi yêu cầu và cập nhật trạng thái trong một nơi.</p></div><button type="button" class="button button-dark" id="refresh-button">↻ Làm mới</button></div>
+        <div class="stats-grid"><div class="stat-card"><span>Tổng lịch hẹn</span><strong id="stat-total">—</strong><small>Tất cả yêu cầu</small><i>◷</i></div><div class="stat-card"><span>Chờ xác nhận</span><strong id="stat-pending">—</strong><small>Cần xử lý</small><i>✳</i></div><div class="stat-card"><span>Đã xác nhận</span><strong id="stat-confirmed">—</strong><small>Đã lên lịch</small><i>✓</i></div><div class="stat-card"><span>Hoàn thành</span><strong id="stat-completed">—</strong><small>Đã phục vụ</small><i>♡</i></div></div>
+        <section class="dash-table-card"><div class="table-top"><div><h2>Danh sách lịch hẹn <span id="result-count" class="count-pill">0</span></h2><p>Thông tin và trạng thái được lấy trực tiếp từ SQLite qua API.</p></div><div class="filter-controls"><label class="sr-only" for="search-bookings">Tìm theo tên hoặc số điện thoại</label><input id="search-bookings" type="search" placeholder="⌕ Tìm khách hàng..."><label class="sr-only" for="filter-status">Lọc trạng thái</label><select id="filter-status"><option value="all">Tất cả trạng thái</option><option value="pending">Chờ xác nhận</option><option value="confirmed">Đã xác nhận</option><option value="completed">Hoàn thành</option><option value="cancelled">Đã hủy</option></select></div></div>
+          <div class="table-scroll"><table class="booking-table"><thead><tr><th>MÃ</th><th>KHÁCH HÀNG</th><th>DỊCH VỤ</th><th>THỜI GIAN</th><th>TRẠNG THÁI</th><th>THAO TÁC</th></tr></thead><tbody id="booking-rows"><tr><td colspan="6" class="empty-row">Đang tải lịch hẹn...</td></tr></tbody></table></div><div class="table-foot"><span id="table-footer-text">Đang đồng bộ dữ liệu...</span><span>NẾP Studio · Demo dashboard</span></div>
+        </section>
+        <p class="dashboard-message" id="dashboard-message" role="status" aria-live="polite"></p>
+        <div class="dashboard-hint"><span>ⓘ</span> Demo học tập: Không nhập dữ liệu thật. Lịch hẹn mới xuất hiện khi khách đặt lịch ở trang chủ. Chỉ người đã đăng nhập mới xem được số điện thoại.</div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

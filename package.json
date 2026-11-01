@@ -1,0 +1,16 @@
+{
+  "name": "nep-studio-fullstack-demo",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Full-stack Vietnamese service booking demo: Node.js + SQLite + vanilla frontend, no external dependencies.",
+  "scripts": {
+    "setup": "node scripts/setup.mjs",
+    "start": "node server.mjs",
+    "dev": "node --watch server.mjs",
+    "test": "node --test tests/*.test.mjs"
+  },
+  "engines": {
+    "node": ">=22.13.0"
+  }
+}

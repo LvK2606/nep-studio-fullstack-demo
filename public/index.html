@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="NẾP studio — demo website đặt lịch chăm sóc tóc, có backend và hệ thống quản lý lịch hẹn.">
+  <meta name="theme-color" content="#f9f8f3">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/styles.css">
+  <title>NẾP studio — một khoảng lành cho mái tóc</title>
+  <script src="/app.js" defer></script>
+</head>
+<body>
+  <div class="demo-banner"><span class="status-dot"></span> DỰ ÁN DEMO PORTFOLIO · Không nhận lịch hẹn thực tế <a href="/admin">Xem trang quản trị <span aria-hidden="true">↗</span></a></div>
+  <header class="site-header" id="top">
+    <div class="container navbar">
+      <a class="logo" href="#top" aria-label="NẾP studio, về đầu trang">nếp<span class="logo-period">.</span><span class="logo-caption">hair & care studio</span></a>
+      <nav class="nav-links" aria-label="Điều hướng chính">
+        <a href="#services">Dịch vụ</a><a href="#story">Về chúng tôi</a><a href="#process">Quy trình</a>
+      </nav>
+      <a href="#booking" class="button button-dark nav-cta">Đặt lịch ngay <span aria-hidden="true">↗</span></a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero container" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <div class="eyebrow"><span class="eyebrow-line"></span> NẾP STUDIO · CHĂM SÓC TỪ NHỮNG ĐIỀU NHỎ</div>
+        <h1 id="hero-title">Mái tóc đẹp.<br>Một ngày <em>dịu dàng.</em></h1>
+        <p>Đôi khi, điều bạn cần chỉ là một khoảng thời gian dành riêng cho mình. Hãy để NẾP chăm sóc mái tóc của bạn, thật nhẹ nhàng.</p>
+        <div class="hero-actions">
+          <a class="button button-accent" href="#booking">Khám phá & đặt lịch <span aria-hidden="true">↗</span></a>
+          <a class="text-link" href="#services">Xem các dịch vụ <span aria-hidden="true">→</span></a>
+        </div>
+        <div class="hero-metrics" aria-label="Thông tin studio">
+          <div><strong>03</strong><span>Gói chăm sóc</span></div><span class="metric-divider"></span>
+          <div><strong>05</strong><span>Khung giờ mỗi ngày</span></div><span class="metric-divider"></span>
+          <div><strong>100%</strong><span>Đặt lịch trực tuyến</span></div>
+        </div>
+      </div>
+      <div class="hero-art" aria-label="Hình minh họa hoa lá trừu tượng" role="img">
+        <div class="art-frame">
+          <span class="art-top-label">SLOW DOWN. FEEL GOOD.</span>
+          <div class="art-ring ring-one"></div>
+          <div class="art-ring ring-two"></div>
+          <div class="art-orbit orbit-one"></div>
+          <div class="art-orbit orbit-two"></div>
+          <div class="flower flower-one"><span></span><span></span><span></span><span></span><span></span><i></i></div>
+          <div class="flower flower-two"><span></span><span></span><span></span><span></span><span></span><i></i></div>
+          <div class="art-label"><span class="art-label-line"></span><span>care in every detail<br><strong>nếp. studio</strong></span></div>
+          <span class="art-bottom-label">EST. WITH CARE · 2026</span>
+        </div>
+        <div class="hero-sticker"><span>✳</span> Một chút<br>thương mình.</div>
+      </div>
+    </section>
+
+    <section class="section section-services" id="services" aria-labelledby="services-heading">
+      <div class="container">
+        <div class="section-heading split-heading">
+          <div><div class="section-kicker">01 / DỊCH VỤ</div><h2 id="services-heading">Một chút chăm sóc,<br><em>nhiều điều tốt lành.</em></h2></div>
+          <p>Mỗi liệu trình đều được thiết kế để bạn thật sự thư giãn. Chọn một dịch vụ phù hợp với mình nhé.</p>
+        </div>
+        <div class="service-grid" id="service-grid" aria-live="polite"><p class="loading-note">Đang tải dịch vụ...</p></div>
+        <div class="services-bottom"><span>Không biết nên chọn gì? Hãy liên hệ để được tư vấn.</span><a href="#booking" class="text-link">Đặt lịch tư vấn <span aria-hidden="true">↗</span></a></div>
+      </div>
+    </section>
+
+    <section class="section about-section" id="story" aria-labelledby="story-heading">
+      <div class="container about-grid">
+        <div class="about-visual" aria-hidden="true"><div class="about-arch"></div><div class="about-sun"></div><div class="about-leaf leaf-a"></div><div class="about-leaf leaf-b"></div><div class="about-visual-text">take time<br>to <em>unwind.</em></div></div>
+        <div class="about-copy"><div class="section-kicker">02 / CÂU CHUYỆN</div><h2 id="story-heading">Chậm một chút.<br><em>Đẹp hơn một chút.</em></h2><p>Chúng mình tin rằng chăm sóc bản thân không phải là một điều xa xỉ. Đó là khoảnh khắc bạn được nghỉ ngơi, lắng nghe cơ thể và yêu thương chính mình.</p><p>Mọi chi tiết tại NẾP được hình dung với tinh thần giản dị: thoải mái, đủ đầy và không vội vã.</p><div class="quote-line">“Bình yên bắt đầu từ những điều nhỏ.”</div></div>
+      </div>
+    </section>
+
+    <section class="section process-section" id="process" aria-labelledby="process-heading">
+      <div class="container"><div class="section-heading center-heading"><div class="section-kicker">03 / CÁCH ĐẶT LỊCH</div><h2 id="process-heading">Chỉ ba bước <em>nhẹ tênh.</em></h2><p>Đặt lịch dễ dàng, không cần tạo tài khoản.</p></div>
+        <div class="process-grid">
+          <div class="process-card"><span class="process-no">01</span><div class="process-icon">✳</div><h3>Chọn dịch vụ</h3><p>Tìm liệu trình phù hợp với nhu cầu và khoảng thời gian của bạn.</p></div>
+          <div class="process-card"><span class="process-no">02</span><div class="process-icon">◷</div><h3>Chọn ngày & giờ</h3><p>Xem khung giờ còn trống và chọn lịch hẹn thuận tiện.</p></div>
+          <div class="process-card"><span class="process-no">03</span><div class="process-icon">♡</div><h3>Gửi yêu cầu</h3><p>Điền thông tin liên hệ. Studio sẽ tiếp nhận và xác nhận lịch.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section booking-section" id="booking" aria-labelledby="booking-heading">
+      <div class="container booking-layout">
+        <div class="booking-aside"><div class="section-kicker">04 / ĐẶT LỊCH HẸN</div><h2 id="booking-heading">Hẹn nhau<br><em>một ngày đẹp.</em></h2><p>Chọn dịch vụ và khoảng thời gian phù hợp. Đây là bản demo, bạn vui lòng dùng thông tin giả khi thử đặt lịch.</p>
+          <div class="booking-infos"><div><span class="info-symbol">⌚</span><span><strong>Giờ trải nghiệm</strong><small>09:00 – 17:30 · Theo lịch hẹn</small></span></div><div><span class="info-symbol">✦</span><span><strong>Xác nhận thủ công</strong><small>Yêu cầu mới được lưu ở trạng thái chờ</small></span></div><div><span class="info-symbol">♡</span><span><strong>Trải nghiệm thử</strong><small>Không có thanh toán hoặc đặt lịch thật</small></span></div></div>
+        </div>
+        <div class="booking-card">
+          <div class="booking-card-top"><span class="pill"><span class="status-dot"></span> BOOKING ONLINE</span><span class="booking-step">FORM / 01</span></div>
+          <h3>Đặt lịch trải nghiệm</h3><p class="form-subtitle">Điền thông tin để gửi yêu cầu đặt lịch.</p>
+          <form id="booking-form" novalidate>
+            <div class="field"><label for="service-input">Dịch vụ <span aria-hidden="true">*</span></label><select id="service-input" name="serviceId" required><option value="">Chọn dịch vụ bạn quan tâm</option></select></div>
+            <div class="form-row"><div class="field"><label for="date-input">Ngày hẹn <span aria-hidden="true">*</span></label><input type="date" id="date-input" name="date" required></div><div class="field"><label for="time-input">Khung giờ <span aria-hidden="true">*</span></label><select id="time-input" name="time" required disabled><option value="">Chọn ngày trước</option></select></div></div>
+            <div class="form-row"><div class="field"><label for="name-input">Họ và tên <span aria-hidden="true">*</span></label><input id="name-input" name="name" placeholder="Nguyễn Văn A" maxlength="80" autocomplete="name" required></div><div class="field"><label for="phone-input">Số điện thoại <span aria-hidden="true">*</span></label><input id="phone-input" name="phone" type="tel" placeholder="0901234567" maxlength="20" autocomplete="tel" required></div></div>
+            <div class="field"><label for="note-input">Ghi chú <span class="optional">(không bắt buộc)</span></label><textarea id="note-input" name="note" rows="3" maxlength="500" placeholder="Mong muốn hoặc lưu ý thêm..."></textarea></div>
+            <p class="demo-warning"><span aria-hidden="true">ⓘ</span> Dữ liệu được lưu vào SQLite trên máy chạy demo. Không nhập thông tin cá nhân thật.</p>
+            <button type="submit" class="button button-accent submit-button" id="submit-button">Gửi yêu cầu đặt lịch <span aria-hidden="true">↗</span></button>
+            <p class="form-message" id="form-message" role="status" aria-live="polite"></p>
+          </form>
+          <div class="booking-success" id="booking-success" hidden><div class="success-icon">✓</div><h4>Đã nhận yêu cầu!</h4><p id="success-details"></p><p>Trạng thái hiện tại: <strong>Chờ xác nhận</strong></p><button class="button button-outline" id="book-again">Đặt một lịch khác <span aria-hidden="true">↗</span></button></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="footer-cta"><div class="container"><div><span>GOOD DAYS BEGIN WITH GOOD CARE</span><h2>Hẹn gặp nhau tại <em>NẾP.</em></h2></div><a href="#booking" class="button button-light">Đặt lịch ngay <span aria-hidden="true">↗</span></a></div></section>
+  </main>
+
+  <footer class="footer"><div class="container footer-grid"><div><a href="#top" class="logo">nếp<span class="logo-period">.</span><span class="logo-caption">hair & care studio</span></a><p>Chút dịu dàng cho những ngày bận rộn.<br>Website demo full-stack phục vụ portfolio.</p></div><div><strong>KHÁM PHÁ</strong><a href="#services">Dịch vụ</a><a href="#story">Câu chuyện</a><a href="#booking">Đặt lịch</a></div><div><strong>DÀNH CHO NHÀ TUYỂN DỤNG</strong><a href="/admin">Quản trị lịch hẹn</a><a href="/api/services">API dịch vụ</a><span>Node.js · SQLite · HTML/CSS/JS</span></div></div><div class="container footer-bottom"><span>© 2026 NẾP studio. Sản phẩm demo, thương hiệu hư cấu.</span><span>Made to showcase frontend + backend <span aria-hidden="true">✳</span></span></div></footer>
+</body>
+</html>
