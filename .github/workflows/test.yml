@@ -17,3 +17,6 @@ jobs:
         run: npm install --ignore-scripts --no-audit
       - name: Run integration tests
         run: npm test
+      - name: Validate Cloudflare Worker bundle
+        if: ${{ hashFiles('wrangler.jsonc') != '' }}
+        run: npx wrangler deploy --dry-run

@@ -48,6 +48,10 @@ Xem [hướng dẫn Render Free](DEPLOY_RENDER.md) để chạy Node.js và nh�
 
 Bản này hỗ trợ **SQLite local** và **Neon PostgreSQL trên Render** khi cấu hình `DATABASE_URL`. Xem [hướng dẫn cấu hình và kiểm thử dữ liệu](DEPLOY_NEON.md). Chỉ nên chuyển môi trường thật sau khi đã xác minh kết nối Neon và sao lưu dữ liệu cần giữ.
 
+## Hosting Free không ngủ sau 15 phút
+
+Có thể triển khai frontend + API lên **Cloudflare Workers Free** với Neon PostgreSQL hiện tại: [hướng dẫn Cloudflare](DEPLOY_CLOUDFLARE_FREE.md). Phiên bản Worker đang được phát triển trên nhánh `feature/cloudflare-workers-free`; Render cũ vẫn là môi trường hoạt động cho đến khi kiểm thử xong.
+
 ## Chạy trên máy cá nhân
 
 **Yêu cầu:** Node.js **22.13+** (khuyên Node 22 LTS trở lên). `node:sqlite` có thể hiển thị cảnh báo API experimental ở một số phiên bản Node, nhưng bản demo đã được kiểm thử với Node 22.16.0.

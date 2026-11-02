@@ -1,3 +1,12 @@
+// Keep the browser URL clean when visitors arrive through campaign links.
+(function removeTrackingQueryParameters() {
+  const url = new URL(window.location.href);
+  const parameters = [...url.searchParams.keys()].filter(key => /^utm_/i.test(key));
+  if (!parameters.length) return;
+  for (const key of parameters) url.searchParams.delete(key);
+  window.history.replaceState(window.history.state, '', url.pathname + url.search + url.hash);
+})();
+
 const $ = sel => document.querySelector(sel);
 const label = { pending: 'Chờ xác nhận', confirmed: 'Đã xác nhận', completed: 'Hoàn thành', cancelled: 'Đã hủy' };
 let bookings = [];

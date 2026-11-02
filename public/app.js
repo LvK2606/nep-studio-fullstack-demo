@@ -1,3 +1,12 @@
+// Keep the browser URL clean when visitors arrive through campaign links.
+(function removeTrackingQueryParameters() {
+  const url = new URL(window.location.href);
+  const parameters = [...url.searchParams.keys()].filter(key => /^utm_/i.test(key));
+  if (!parameters.length) return;
+  for (const key of parameters) url.searchParams.delete(key);
+  window.history.replaceState(window.history.state, '', url.pathname + url.search + url.hash);
+})();
+
 const $ = sel => document.querySelector(sel);
 const currency = amount => new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND', maximumFractionDigits: 0 }).format(amount);
 const STATUS = { serviceId: '', date: '' };
